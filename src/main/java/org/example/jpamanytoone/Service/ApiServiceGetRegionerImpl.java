@@ -16,15 +16,19 @@ import java.util.List;
 public class ApiServiceGetRegionerImpl implements ApiServiceGetRegioner {
 
     private final RestTemplate restTemplate;
+    private final RegionRepository regionRepository;
 
-    public ApiServiceGetRegionerImpl(RestTemplate restTemplate) {
+    public ApiServiceGetRegionerImpl(RestTemplate restTemplate, RegionRepository regionRepository) {
         this.restTemplate = restTemplate;
+        this.regionRepository = regionRepository;
     }
 
     String regionUrl = "https://api.dataforsyningen.dk/regioner";
 
-    @Autowired
-    RegionRepository regionRepository;
+
+
+
+
 
     private void saveRegioner(List<Region> regioner) {
         regioner.forEach(reg -> regionRepository.save(reg));

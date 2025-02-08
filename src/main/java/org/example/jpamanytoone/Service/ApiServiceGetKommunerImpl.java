@@ -16,18 +16,19 @@ import java.util.List;
 public class ApiServiceGetKommunerImpl implements ApiServiceGetKommuner {
 
     private final RestTemplate restTemplate;
+    private final KommuneRepository kommuneRepository;
 
-    public ApiServiceGetKommunerImpl(RestTemplate restTemplate) {
+    public ApiServiceGetKommunerImpl(RestTemplate restTemplate, KommuneRepository kommuneRepository) {
         this.restTemplate = restTemplate;
+        this.kommuneRepository = kommuneRepository;
     }
 
     String KommuneUrl = "https://api.dataforsyningen.dk/kommuner";
 
-    @Autowired
-    KommuneRepository KommuneRepository;
+
 
     private void saveKommuner(List<Kommune> Kommuner) {
-        Kommuner.forEach(reg -> KommuneRepository.save(reg));
+        Kommuner.forEach(kom -> kommuneRepository.save(kom));
     }
 
     @Override

@@ -19,7 +19,6 @@ public class RegionRestController {
         this.apiServiceGetRegioner = apiServiceGetRegioner;
     }
 
-
     /**
      * Retrieves all regions from the url
      * @return a list of regions
