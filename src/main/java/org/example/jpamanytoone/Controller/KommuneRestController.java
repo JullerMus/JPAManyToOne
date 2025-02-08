@@ -11,8 +11,12 @@ import java.util.List;
 @RestController
 public class KommuneRestController {
 
-    @Autowired
-    ApiServiceGetKommuner apiServiceGetKommuner;
+
+    private final ApiServiceGetKommuner apiServiceGetKommuner;
+
+    public KommuneRestController(ApiServiceGetKommuner apiServiceGetKommuner) {
+        this.apiServiceGetKommuner = apiServiceGetKommuner;
+    }
 
     @GetMapping("/getkommuner")
     public List<Kommune> getKommuner() {

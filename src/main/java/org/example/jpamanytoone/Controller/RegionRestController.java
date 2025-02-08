@@ -12,14 +12,25 @@ import java.util.List;
 @RestController
 public class RegionRestController {
 
-    @Autowired
-    ApiServiceGetRegioner apiServiceGetRegioner;
 
-    @Autowired
-    RegionRepository regionRepository;
+    private final ApiServiceGetRegioner apiServiceGetRegioner;
 
+    public RegionRestController(ApiServiceGetRegioner apiServiceGetRegioner) {
+        this.apiServiceGetRegioner = apiServiceGetRegioner;
+    }
+
+
+    /**
+     * Retrieves all regions from the url
+     * @return a list of regions
+     */
     @GetMapping("/getregioner")
     public List<Region> getRegioner(){
         return apiServiceGetRegioner.getRegioner();
+    }
+
+    @GetMapping("/getregionerdb")
+    public List<Region> getRegionerDB(){
+        return apiServiceGetRegioner.getRegionerDB();
     }
 }

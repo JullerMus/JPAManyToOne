@@ -30,6 +30,10 @@ public class ApiServiceGetRegionerImpl implements ApiServiceGetRegioner {
         regioner.forEach(reg -> regionRepository.save(reg));
     }
 
+    /**
+     * Retrieves all regions from the URL
+     * @return A list of all regions
+     */
     @Override
     public List<Region> getRegioner(){
         List<Region> lst = new ArrayList<>();
@@ -42,6 +46,16 @@ public class ApiServiceGetRegionerImpl implements ApiServiceGetRegioner {
         saveRegioner(regioner);
         return regioner;
 
+    }
+
+    /**
+     * Retrieves all regions from the database
+     * @return A list of all regions
+     */
+    public List<Region> getRegionerDB(){
+        List<Region> lst = new ArrayList<>();
+        lst.addAll(regionRepository.findAll());
+        return lst;
     }
 
 }
