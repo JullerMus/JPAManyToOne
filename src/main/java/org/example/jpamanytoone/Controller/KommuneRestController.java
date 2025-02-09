@@ -23,4 +23,9 @@ public class KommuneRestController {
         return apiServiceGetKommuner.getKommuner();
     }
 
+    @GetMapping("/getkommunenames")
+    public List<String>  getKommuneNames() {
+        return apiServiceGetKommuner.getKommuneNames();
+    }
+
 }

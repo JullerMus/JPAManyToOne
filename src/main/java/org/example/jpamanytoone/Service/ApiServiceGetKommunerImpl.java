@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -43,6 +44,11 @@ public class ApiServiceGetKommunerImpl implements ApiServiceGetKommuner {
         saveKommuner(Kommuner);
         return Kommuner;
 
+    }
+
+    @Override
+    public List<String> getKommuneNames() {
+        return kommuneRepository.findAll().stream().map(Kommune::getNavn).toList();
     }
 
 
